@@ -18,9 +18,5 @@ jobs:
      script: |
       cd nextjs-sao
       git pull
-      apt-install -y nvm
-      nvm use 14
-      npm -v
-      npm i pm2 --global
-      npm run build
-      pm2 reload nextjs-sao
+      pwd
+      echo "hello?"
