@@ -22,7 +22,7 @@ export default function Home() {
           <Col sm={4}><p style={{ height: "150px", width: "150px", lineHeight: "134px" }} className="bg-dark text-primary shadow rounded-circle mx-auto text-center h3 pt-2">Sicher</p><p className="border-top pt-3 mt-3 text-mute text-justify">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor.</p></Col>
           <Col sm={4}><p style={{ height: "150px", width: "150px", lineHeight: "134px" }} className="bg-dark text-primary shadow rounded-circle mx-auto text-center h3 pt-2">Schnell</p><p className="border-top pt-3 mt-3 text-mute text-justify">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor.</p></Col>
         </Row>
-        <Link href="/#footer" passHref><a><button className='btn btn-outline-primary m-2 rounded-0'>WEITER!</button></a></Link>
+        <Link href="/#footer" passHref><a><button className='btn btn-outline-primary m-2 rounded-0'>WEITER</button></a></Link>
       </div>
     </div>
     <div className="bg-dark py-5">

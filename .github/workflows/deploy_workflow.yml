@@ -17,5 +17,6 @@ jobs:
      port: 22
      script: |
       cd nextjs-sao
-      git pull origin main
-      git status
+      git pull
+      npm run build
+      pm2 reload nextjs-sao
