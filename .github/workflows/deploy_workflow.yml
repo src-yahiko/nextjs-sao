@@ -18,5 +18,4 @@ jobs:
      script: |
       cd nextjs-sao
       git pull
-      cd ..
-      ./deploy-nextjs-sao.sh
+      /root/.nvm/versions/node/v14.18.2/bin/npm -v
