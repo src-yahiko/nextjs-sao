@@ -18,8 +18,5 @@ jobs:
      script: |
       cd nextjs-sao
       git pull
-      export NVM_DIR="$HOME/.nvm"
-      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-      nvm install 14
       npm -v
-      pm2 list
+      node -v
