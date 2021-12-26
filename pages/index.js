@@ -28,7 +28,7 @@ export default function Home() {
     <div className="bg-dark py-5">
       <div className="mt-5 mx-auto py-5 bg-dark text-primary">
         <h1 className='mt-auto display-4 mx-auto text-center'>Noch Fragen? Kein Problem!</h1>
-        <p style={{ maxWidth: "670px" }} className='container lead text-center mx-auto text-secondary'>Wir beantworten Ihre Fragen so gut wir können und so schnell wir können. Nehmen Sie kontakt mit uns auf und erklären Sie uns Ihr Anliegen. Wir freuen uns auf Sie!</p>
+        <p style={{ maxWidth: "670px" }} className='container lead text-center mx-auto text-secondary'>Wir beantworten Ihre Fragen so gut und schnell wir können. Nehmen Sie kontakt mit uns auf und erklären Sie uns Ihr Anliegen. Wir freuen uns auf Sie!</p>
         <div className="text-center">
           <button className='btn btn-warning m-2 rounded-0 btn-lg'>KONTAKT AUFNEHMEN</button>
         </div>
