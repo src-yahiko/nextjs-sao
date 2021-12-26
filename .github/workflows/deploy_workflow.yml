@@ -20,3 +20,6 @@ jobs:
       git pull
       npm -v
       node -v
+      npm ci
+      npm run build
+      pm2 reload nextjs-sao || pm2 start npm --name nextjs-sao -- run start
