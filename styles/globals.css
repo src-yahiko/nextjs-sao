@@ -1,16 +1,40 @@
+@font-face {
+    font-family: 'FivoSans';
+    /* font-weight: 400; */
+    src: url('/fonts/FivoSans/FivoSans-Light.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'FivoSans';
+    /* font-weight: 500; */
+    src: url('/fonts/FivoSans/FivoSans-Medium.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'FivoSans';
+    /* font-weight: 600; */
+    src: url('/fonts/FivoSans/FivoSans-Regular.woff2') format('woff2');
+}
+
 html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+body,
+.body {
+    padding: 0;
+    margin: 0;
+    font-family: FivoSans !important;
+    min-height: 100vh;
+    max-width: 100vw;
+    scroll-behavior: smooth;
+
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+main {
+    min-height: 100vh;
 }
