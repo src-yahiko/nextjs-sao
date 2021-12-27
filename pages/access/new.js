@@ -1,18 +1,56 @@
-import { Navbar, Container, Offcanvas, Nav, NavDropdown, Form, FormControl, Button, Badge, Row, Col } from 'react-bootstrap'
+import { Form, Button, Row, Col } from 'react-bootstrap'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import axios from 'axios'
+import { Alert } from 'react-bootstrap'
+import { useState, useEffect } from 'react'
+import GuardAnti from '../../utils/guardAnti'
+export const getServerSideProps = async (ctx) => GuardAnti(ctx)
 
 export default function Access() {
+    const router = useRouter()
+    const [errorMsg, setErrorMsg] = useState("")
+    useEffect(() => { props.setUserData(props.user) }, [])
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        setErrorMsg("")
+
+        if (e.target.foa.value === "0")
+            return setErrorMsg("Bitte geben Sie eine Anredeform an.")
+
+        if (e.target.email.value !== e.target.reEmail.value)
+            return setErrorMsg("Bitte überprüfen Sie Ihre Eingaben. Die E-Mails stimmen nicht überein.")
+
+        if (e.target.password.value !== e.target.rePassword.value)
+            return setErrorMsg("Bitte überprüfen Sie Ihre Eingaben. Die Passwörter stimmen nicht überein.")
+
+
+        const userData = {
+            username: e.target.firstname.value[0] + e.target.lastname.value,
+            password: e.target.password.value,
+            email: e.target.email.value
+        }
+
+        console.log(userData)
+
+        try {
+            await axios.post('/api/register', userData)
+            return router.replace('/profile')
+        } catch (err) {
+            return setErrorMsg(err.response.data)
+        }
+    }
     return <main className="w-100 py-5">
-        <Form className="container-fluid col-12 col-md-6 col-lg-4" onSubmit={(e) => e.preventDefault()}>
+        <Form className="container-fluid col-12 col-md-6 col-lg-4" onSubmit={handleSubmit}>
             <h1 className='display-1 text-dark border-bottom'>Registrieren.</h1>
             <Form.Group className="mb-3">
                 <Form.Label>Persönliche Angaben</Form.Label>
                 <Row>
                     <Col lg={4}>
-                        <Form.Select aria-label="Anrede" id="selectfoa" required>
-                            <option>Anrede</option>
-                            <option value="1">Frau</option>
-                            <option value="2">Herr</option>
+                        <Form.Select aria-label="Anrede" id="foa" required>
+                            <option value="0">Anrede</option>
+                            <option value="Frau">Frau</option>
+                            <option value="Herr">Herr</option>
                         </Form.Select>
                     </Col>
                     <Col></Col>
@@ -20,7 +58,7 @@ export default function Access() {
                 </Row>
                 <Row>
                     <Col><Form.Control id="firstname" className="mt-2" type="text" placeholder="Vorname" required /></Col>
-                    <Col><Form.Control id="surname" className="mt-2" type="text" placeholder="Nachname" required /></Col>
+                    <Col><Form.Control id="lastname" className="mt-2" type="text" placeholder="Nachname" required /></Col>
                 </Row>
             </Form.Group>
             <Form.Group className="mb-3" autoComplete="off">
@@ -41,7 +79,9 @@ export default function Access() {
                 <Form.Label>Allgemeine Geschäftsbedingungen</Form.Label>
                 <Form.Check type="checkbox" id="acceptCheckbox" label="Ich habe die AGBs gelesen und bin mit ihnen einverstanden." required />
             </Form.Group>
-
+            {errorMsg !== "" && (<Alert variant="warning">
+                {errorMsg}
+            </Alert>)}
             <div>
                 <Button variant="primary" type="submit" className="border text-light rounded-0 w-100">
                     Registrieren

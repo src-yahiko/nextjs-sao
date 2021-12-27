@@ -1,7 +1,11 @@
 import Link from 'next/link'
+import { useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap'
+import GuardLow from "../utils/guardLow";
+export const getServerSideProps = async (ctx) => GuardLow(ctx)
 
-export default function Home() {
+export default function Home(props) {
+
   return (<main className="w-100 bg-light">
     <div className='d-block'>
       <div className='bg-dark text-primary text-center d-flex align-items-center flex-column justify-content-center' style={{ minHeight: "98vh" }}>
