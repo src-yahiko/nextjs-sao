@@ -5,7 +5,7 @@ const register = async (req, res) => {
     const { username, password, email } = req.body;
 
     axios
-        .post(proccess.env.api + '/api/auth/local/register', {
+        .post(process.env.api + '/api/auth/local/register', {
             username,
             email,
             password,

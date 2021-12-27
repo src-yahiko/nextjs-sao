@@ -8,7 +8,7 @@ const GuardAnti = async (ctx) => {
 
     if (cookies?.jwt) {
         try {
-            const { data } = await axios.get(proccess.env.api + '/api/users/me', {
+            const { data } = await axios.get(process.env.api + '/api/users/me', {
                 headers: {
                     Authorization:
                         `Bearer ${cookies.jwt}`,

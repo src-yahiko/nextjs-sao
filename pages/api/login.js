@@ -5,7 +5,7 @@ const login = async (req, res) => {
     const { email, password } = req.body;
 
     axios
-        .post(proccess.env.api + '/api/auth/local', {
+        .post(process.env.api + '/api/auth/local', {
             identifier: email,
             password,
         })
