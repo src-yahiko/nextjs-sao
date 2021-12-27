@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import Guard from "../../utils/guard";
 
-const Profile = (props) => {
-    useEffect(() => { props.setUserData(props.user) }, [])
+const Profile = ({ setUserData, user }) => {
+    useEffect(() => { setUserData(user) }, [setUserData, user])
     return (
         <div>
-            Du hast die Mail: {props.user.email}
+            Du hast die Mail: {user.email}
         </div>
     )
 }

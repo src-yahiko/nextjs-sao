@@ -5,7 +5,6 @@ import nookies from 'nookies';
 const Guard = async (ctx) => {
     const cookies = nookies.get(ctx)
     let user = null;
-    console.log("Hello from GUARD!!")
 
     if (cookies?.jwt) {
         try {

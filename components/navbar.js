@@ -5,10 +5,10 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
 
-export default function MyNavbar(props) {
+export default function MyNavbar({ userData }) {
     const router = useRouter()
-    useEffect(() => { }, [props.userData])
-    const loggedIn = !(props.userData && Object.keys(props.userData).length === 0 && Object.getPrototypeOf(props.userData) === Object.prototype)
+    useEffect(() => { }, [userData])
+    const loggedIn = !(userData && Object.keys(userData).length === 0 && Object.getPrototypeOf(userData) === Object.prototype)
 
     return <Navbar id="navbar" collapseOnSelect expand="lg" bg="dark" variant="dark" className="pb-2 pt-3 shadow-sm">
         <Container fluid className="px-5">
@@ -28,8 +28,9 @@ export default function MyNavbar(props) {
                     </NavDropdown>
                 </Nav>
                 <Nav>
-                    {!loggedIn ? (<Link href="/access" passHref><Nav.Link active={router.pathname == "/access"}>Anmelden</Nav.Link></Link>)
-                        : (<Link href="/access/logout" passHref><Nav.Link active={router.pathname == "/access/logout"}>{props.userData.email} abmelden</Nav.Link></Link>)}
+                    {loggedIn && userData.email ? (<Link href="/access/logout" passHref><Nav.Link active={router.pathname == "/access/logout"}>{userData.email} abmelden</Nav.Link></Link>)
+                        :
+                        (<Link href="/access" passHref><Nav.Link active={router.pathname == "/access"}>Anmelden</Nav.Link></Link>)}
                 </Nav>
             </Navbar.Collapse>
         </Container>
