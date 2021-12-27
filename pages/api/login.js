@@ -5,7 +5,7 @@ const login = async (req, res) => {
     const { email, password } = req.body;
 
     axios
-        .post('https://strapi.barutec.com/api/auth/local', {
+        .post(proccess.env.api + '/api/auth/local', {
             identifier: email,
             password,
         })

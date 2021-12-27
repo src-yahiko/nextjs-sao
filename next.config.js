@@ -12,4 +12,7 @@ module.exports = {
     });
     return config;
   },
+  env: {
+    api: 'https://localhost:1337'
+  }
 }

@@ -5,7 +5,7 @@ const register = async (req, res) => {
     const { username, password, email } = req.body;
 
     axios
-        .post('https://strapi.barutec.com/api/auth/local/register', {
+        .post(proccess.env.api + '/api/auth/local/register', {
             username,
             email,
             password,

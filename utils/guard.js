@@ -8,7 +8,7 @@ const Guard = async (ctx) => {
 
     if (cookies?.jwt) {
         try {
-            const { data } = await axios.get('https://strapi.barutec.com/api/users/me', {
+            const { data } = await axios.get(proccess.env.api + '/api/users/me', {
                 headers: {
                     Authorization:
                         `Bearer ${cookies.jwt}`,
