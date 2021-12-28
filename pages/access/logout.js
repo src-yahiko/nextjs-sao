@@ -10,10 +10,9 @@ export default function Access(props) {
 
     const logout = async () => {
         try {
+            props.setUserData({})
             await axios.get('/api/logout');
             router.push('/');
-            props.setLoggedIn(false)
-            props.setUserData({})
         } catch (e) {
             console.log(e);
         }

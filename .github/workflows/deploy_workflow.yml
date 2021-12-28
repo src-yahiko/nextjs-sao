@@ -17,6 +17,8 @@ jobs:
      port: 22
      script: |
       cd nextjs-sao
+      git stash
+      git clean -f
       git pull
       npm -v
       node -v

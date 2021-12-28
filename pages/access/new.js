@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
 import GuardAnti from '../../utils/guardAnti'
 export const getServerSideProps = async (ctx) => GuardAnti(ctx)
 
-export default function Access() {
+export default function Access(props) {
     const router = useRouter()
     const [errorMsg, setErrorMsg] = useState("")
     useEffect(() => { props.setUserData(props.user) }, [])
