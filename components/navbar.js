@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 export default function MyNavbar({ userData }) {
     const router = useRouter()
     useEffect(() => { }, [userData])
-    const loggedIn = !(userData && Object.keys(userData).length === 0 && Object.getPrototypeOf(userData) === Object.prototype)
+    const loggedIn = !(userData && Object.keys(userData).length === 0 && Object.getPrototypeOf(userData) === Object.prototype) && userData !== null
 
     return <Navbar id="navbar" collapseOnSelect expand="lg" bg="dark" variant="dark" className="pb-2 pt-3 shadow-sm">
         <Container fluid className="px-5">
@@ -28,7 +28,7 @@ export default function MyNavbar({ userData }) {
                     </NavDropdown>
                 </Nav>
                 <Nav>
-                    {loggedIn && userData && userData.email ? (<Link href="/access/logout" passHref><Nav.Link active={router.pathname == "/access/logout"}>{userData.email} abmelden</Nav.Link></Link>)
+                    {loggedIn && userData && userData !== null && userData.email ? (<Link href="/access/logout" passHref><Nav.Link active={router.pathname == "/access/logout"}>{userData.email} abmelden</Nav.Link></Link>)
                         :
                         (<Link href="/access" passHref><Nav.Link active={router.pathname == "/access"}>Anmelden</Nav.Link></Link>)}
                 </Nav>

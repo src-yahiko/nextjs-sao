@@ -10,7 +10,7 @@ export const getServerSideProps = async (ctx) => GuardAnti(ctx)
 export default function Access(props) {
     const router = useRouter()
     const [errorMsg, setErrorMsg] = useState("")
-    useEffect(() => { props.setUserData(props.user) }, [])
+    useEffect(() => { console.log("DEBUG", props.user); props.setUserData(props.user) }, [])
     const handleSubmit = async (e) => {
         e.preventDefault()
         setErrorMsg("")
