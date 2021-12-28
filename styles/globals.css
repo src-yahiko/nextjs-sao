@@ -38,3 +38,12 @@ a {
 main {
     min-height: 100vh;
 }
+
+.hide {
+    display: none !important;
+}
+
+button,
+input {
+    border-radius: 0 !important;
+}

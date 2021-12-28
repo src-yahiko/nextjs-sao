@@ -2,13 +2,16 @@ import axios from 'axios';
 import { setCookie } from 'nookies'
 
 const register = async (req, res) => {
-    const { username, password, email } = req.body;
+    const { username, password, email, formofaddress, firstname, lastname } = req.body;
 
     axios
         .post(process.env.api + '/api/auth/local/register', {
             username,
             email,
             password,
+            formofaddress,
+            firstname,
+            lastname
         })
         .then(response => {
             // Handle success

@@ -15,7 +15,7 @@ export default function Access(props) {
         e.preventDefault()
         setErrorMsg("")
 
-        if (e.target.foa.value === "0")
+        if (e.target.formofaddress.value === "0")
             return setErrorMsg("Bitte geben Sie eine Anredeform an.")
 
         if (e.target.email.value !== e.target.reEmail.value)
@@ -26,9 +26,12 @@ export default function Access(props) {
 
 
         const userData = {
-            username: e.target.firstname.value[0] + e.target.lastname.value,
+            username: e.target.firstname.value + e.target.lastname.value,
             password: e.target.password.value,
-            email: e.target.email.value
+            email: e.target.email.value,
+            formofaddress: e.target.formofaddress.value,
+            firstname: e.target.firstname.value,
+            lastname: e.target.lastname.value
         }
 
         console.log(userData)
@@ -47,7 +50,7 @@ export default function Access(props) {
                 <Form.Label>Persönliche Angaben</Form.Label>
                 <Row>
                     <Col lg={4}>
-                        <Form.Select aria-label="Anrede" id="foa" required>
+                        <Form.Select aria-label="Anrede" id="formofaddress" required>
                             <option value="0">Anrede</option>
                             <option value="Frau">Frau</option>
                             <option value="Herr">Herr</option>
