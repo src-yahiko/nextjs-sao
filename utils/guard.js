@@ -5,6 +5,7 @@ import nookies from 'nookies';
 const Guard = async (ctx) => {
     const cookies = nookies.get(ctx)
     let user = null;
+    let jwt = null;
 
     if (cookies?.jwt) {
         try {
@@ -15,6 +16,7 @@ const Guard = async (ctx) => {
                 },
             });
             user = data;
+            jwt = cookies.jwt
             // console.log(user)
         } catch (e) {
             console.log(e);
@@ -32,7 +34,8 @@ const Guard = async (ctx) => {
 
     return {
         props: {
-            user
+            user,
+            jwt
         }
     }
 }

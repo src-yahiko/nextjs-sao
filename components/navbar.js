@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 export default function MyNavbar({ userData }) {
     const router = useRouter()
     useEffect(() => { }, [userData])
-    const loggedIn = !(userData && Object.keys(userData).length === 0 && Object.getPrototypeOf(userData) === Object.prototype) && userData !== null
+    const loggedIn = !(userData && Object.keys(userData).length === 0 && Object.getPrototypeOf(userData) === Object.prototype) && userData !== null && userData && userData !== null && userData.email
 
     return <Navbar id="navbar" collapseOnSelect expand="lg" bg="dark" variant="dark" className="pb-2 pt-3 shadow-sm">
         <Container fluid className="px-5">
@@ -18,21 +18,25 @@ export default function MyNavbar({ userData }) {
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
                     <Link href="/" passHref><Nav.Link active={router.pathname == "/"}>Startseite</Nav.Link></Link>
-                    <Link href="/profile" passHref><Nav.Link active={router.pathname == "/profile"} disabled={!loggedIn}>Meine Daten</Nav.Link></Link>
-                    <Nav.Link disabled={!loggedIn}>Meine Einsendungen</Nav.Link>
-                    <NavDropdown disabled={!loggedIn} className="text-primary" title="Nachrichten" id="collasible-nav-dropdown">
-                        <NavDropdown.Item>Kontakt aufnehmen</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item>Neuer Status für Antrag 123...</NavDropdown.Item>
-                        <NavDropdown.Item>Neuer Status für Antrag 321...</NavDropdown.Item>
-                    </NavDropdown>
+                    <div className={loggedIn ? '' : 'hide'}>
+                        <Link href="/profile" passHref><Nav.Link active={router.pathname == "/profile"} disabled={!loggedIn}>Meine Daten</Nav.Link></Link>
+                    </div>
+                    <div className='hide'>
+                        <Nav.Link disabled={!loggedIn}>Meine Einsendungen</Nav.Link>
+                        <NavDropdown disabled={!loggedIn} className="text-primary" title="Nachrichten" id="collasible-nav-dropdown">
+                            <NavDropdown.Item>Kontakt aufnehmen</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item>Neuer Status für Antrag 123...</NavDropdown.Item>
+                            <NavDropdown.Item>Neuer Status für Antrag 321...</NavDropdown.Item>
+                        </NavDropdown>
+                    </div>
                 </Nav>
                 <Nav>
-                    {loggedIn && userData && userData !== null && userData.email ? (<Link href="/access/logout" passHref><Nav.Link active={router.pathname == "/access/logout"}>{userData.email} abmelden</Nav.Link></Link>)
+                    {loggedIn ? (<Link href="/access/logout" passHref><Nav.Link active={router.pathname == "/access/logout"}>{userData.email} abmelden</Nav.Link></Link>)
                         :
                         (<Link href="/access" passHref><Nav.Link active={router.pathname == "/access"}>Anmelden</Nav.Link></Link>)}
                 </Nav>
             </Navbar.Collapse>
         </Container>
-    </Navbar>
+    </Navbar >
 }
