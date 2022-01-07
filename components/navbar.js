@@ -20,7 +20,7 @@ export default function MyNavbar({ userData }) {
                         </div>
                         <div className='m-0 p-0 pt-3'>
                             <p className='bt m-0 p-0'>baru tec</p>
-                            <p className='ug m-0 p-0 text-secondary'>UG</p>
+                            <p className='ug m-0 p-0 text-secondary'>Meisterbetrieb</p>
                         </div>
                     </div>
                     {/* <div className='border d-flex'>
